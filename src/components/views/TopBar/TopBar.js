@@ -1,18 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import clsx from 'clsx';
 
-import { Footer } from '../Footer/Footer';
 // import { connect } from 'react-redux';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
-import styles from './MainLayout.module.scss';
+import styles from './TopBar.module.scss';
 
-const Component = ({className, children}) => (
-  <main className={clsx(className, styles.root)}>
-    {children}
-    <Footer/>
-  </main>
+const Component = ({className}) => (
+  <div className={clsx(className, styles.root)}>
+    <h2>Designer & Web Developer</h2>
+  </div>
 );
 
 Component.propTypes = {
@@ -31,7 +30,7 @@ Component.propTypes = {
 // const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
-  Component as MainLayout,
-  // Container as MainLayout,
-  Component as MainLayoutComponent,
+  Component as TopBar,
+  // Container as TopBar,
+  Component as TopBarComponent,
 };

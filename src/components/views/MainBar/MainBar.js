@@ -1,18 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import clsx from 'clsx';
 
-import { Footer } from '../Footer/Footer';
+import clsx from 'clsx';
+import { NavBar } from '../NavBar/NavBar';
+import { TopBar } from '../TopBar/TopBar';
+
 // import { connect } from 'react-redux';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
-import styles from './MainLayout.module.scss';
+import styles from './MainBar.module.scss';
 
-const Component = ({className, children}) => (
-  <main className={clsx(className, styles.root)}>
-    {children}
-    <Footer/>
-  </main>
+const Component = ({className}) => (
+  <div className={clsx(className, styles.root)}>
+    <NavBar />
+    <TopBar />
+  </div>
 );
 
 Component.propTypes = {
@@ -31,7 +33,7 @@ Component.propTypes = {
 // const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
-  Component as MainLayout,
-  // Container as MainLayout,
-  Component as MainLayoutComponent,
+  Component as MainBar,
+  // Container as MainBar,
+  Component as MainBarComponent,
 };

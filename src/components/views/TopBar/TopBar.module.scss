@@ -1,0 +1,17 @@
+@import '../../../styles/settings.scss';
+
+.root {
+    height: 85%;
+    background: rgba(156, 104, 104, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h2 {
+        font-size: 72px;
+        padding: 30px 40px;
+        border: 5px solid $color-white;
+        border-radius: 8px;
+        color: $color-white;
+        font-family: $font-logo;
+    }
+}

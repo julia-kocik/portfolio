@@ -8,8 +8,6 @@ import {
 
 
 // Reducers
-
-
 const reducer = combineReducers({
   projects: getProjectsReducer,
   project: getProjectDetailsReducer,
