@@ -1,6 +1,6 @@
 import * as actionTypes from '../constants/projectConstants';
 
-export const getProjectsReducer = (state = [], action) => {
+export const getProjectsReducer = (state = {}, action) => {
   switch (action.type) {
     case actionTypes.GET_PROJECTS_REQUEST:
       return {

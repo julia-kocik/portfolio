@@ -1,37 +1,61 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
+import {getProjects} from '../../../redux/actions/projectActions';
+import {Link} from 'react-router-dom';
 
 import clsx from 'clsx';
 
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
 import styles from './Projects.module.scss';
 
-const Component = ({className, children}) => (
-  <div className={clsx(className, styles.root)}>
-    <h2>Projects</h2>
-    {children}
-  </div>
-);
-
-Component.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
+const Component = ({className, getProjects, projects, loading, error}) => {
+  useEffect(() => {
+    window.scrollTo(0,0);
+    getProjects();
+  }, [getProjects]);
+  return (
+    <div className={clsx(className, styles.root)}>
+      {(loading || loading === undefined) ? (
+        <h2>Loading...</h2>
+      ) : error ? (
+        <h2>{error}</h2>
+      ) : (
+        <div className={styles.projects}>
+          {projects.map(project => (
+            <div key={project._id}>
+              <a href={project.src}><p>{project.title}</p></a>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
 };
 
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
+Component.propTypes = {
+  className: PropTypes.string,
+  getProjects: PropTypes.func, 
+  projects: PropTypes.array,
+  loading: PropTypes.bool,
+  error: PropTypes.object,
+};
 
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
+const mapStateToProps = state => ({
+  loading: state.projectsRequest.loading,
+  error: state.projectsRequest.error,
+  projects: state.projectsRequest.projects,
+});
 
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
+const mapDispatchToProps = dispatch => ({
+  getProjects: () => dispatch(getProjects()),
+});
+
+const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
-  Component as Projects,
-  // Container as Projects,
+  //Component as Projects,
+  Container as Projects,
   Component as ProjectsComponent,
 };

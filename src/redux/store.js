@@ -9,13 +9,13 @@ import {
 
 // Reducers
 const reducer = combineReducers({
-  projects: getProjectsReducer,
-  project: getProjectDetailsReducer,
+  projectsRequest: getProjectsReducer,
+  projectRequest: getProjectDetailsReducer,
 });
 
 const middleware = [thunk];
 
-const INITIAL_STATE = [];
+const INITIAL_STATE = {};
 
 const store = createStore(
   reducer,
