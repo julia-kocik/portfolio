@@ -1,14 +1,11 @@
-## PET STORE
-
-https://pet-store123.herokuapp.com/
+## PORTFOLIO
 
 ## How to use
 
 #### Endpoints:
 
-`api/products`
-`api/products/:id`
-`api/orders` 
+`api/projects`
+`api/projects/:id`
 
 #### To local run:
 
