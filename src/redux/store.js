@@ -1,26 +1,23 @@
-/*
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import {
+  getProjectsReducer,
+  getProjectDetailsReducer,
+} from './reducers/projectReducers';
+
 
 // Reducers
 
 
 const reducer = combineReducers({
- 
+  projects: getProjectsReducer,
+  project: getProjectDetailsReducer,
 });
 
 const middleware = [thunk];
 
-const cartItemsInLocalStorage = localStorage.getItem('cart')
-  ? JSON.parse(localStorage.getItem('cart'))
-  : [];
-
-const INITIAL_STATE = {
-  cart: {
-    cartItems: cartItemsInLocalStorage,
-  },
-};
+const INITIAL_STATE = [];
 
 const store = createStore(
   reducer,
@@ -29,4 +26,3 @@ const store = createStore(
 );
 
 export default store;
-*/
