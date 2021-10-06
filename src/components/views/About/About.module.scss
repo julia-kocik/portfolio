@@ -28,6 +28,15 @@
             font-size: 28px;
             color: $color-white;
             padding: 40px 60px;
+            position: relative;
+            .icon {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            p {
+                padding: 20px 0;
+            }
         }
     }
 }
