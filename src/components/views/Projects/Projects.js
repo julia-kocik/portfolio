@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {getProjects} from '../../../redux/actions/projectActions';
 
@@ -11,10 +11,16 @@ import { Button } from '../../common/Button/Button';
 import styles from './Projects.module.scss';
 
 const Component = ({className, getProjects, projects, loading, error}) => {
+  const [show, setShow] = useState(false);
+  const sideDrawerClass = [styles.projectBox];
   useEffect(() => {
     window.scrollTo(0,0);
     getProjects();
-  }, [getProjects]);
+    setTimeout(() => setShow(true), 500);
+  }, [getProjects, setShow]);
+  if(show) {
+    sideDrawerClass.push(styles.show);
+  }
   return (
     <div className={clsx(className, styles.root)}>
       {(loading || loading === undefined) ? (
@@ -24,7 +30,7 @@ const Component = ({className, getProjects, projects, loading, error}) => {
       ) : (
         <div className={styles.projects}>
           {projects.map(project => (
-            <div key={project._id} className={styles.projectBox}>
+            <div key={project._id} className={sideDrawerClass.join(' ')}>
               <p className={styles.titleProjects}>{project.title}</p>
               <p className={styles.descriptionProjects}>Description</p>
               <p className={styles.stackProjects}>Tech Stack</p>
