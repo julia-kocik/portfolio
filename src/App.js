@@ -11,7 +11,7 @@ import  store  from './redux/store';
 import { MainLayout } from './components/layout/MainLayout/MainLayout';
 import { Homepage } from './components/views/Homepage/Homepage';
 import { About } from './components/views/About/About';
-import { Projects } from './components/views/Projects/Projects';
+import { ProjectsContainer } from './components/views/ProjectsContainer/ProjectsContainer';
 import { Contact } from './components/views/Contact/Contact';
 import { NotFound } from './components/views/NotFound/NotFound';
 
@@ -36,7 +36,7 @@ const App = () => (
               <Route exact path='/' component={Homepage} />
               <Route exact path='/home' component={Homepage} />
               <Route exact path='/about' component={About} />
-              <Route exact path='/projects' component={Projects} />
+              <Route exact path='/projects' component={ProjectsContainer} />
               <Route exact path='/contact' component={Contact} />
               <Route path='*' component={NotFound} />
             </AnimatedSwitch>

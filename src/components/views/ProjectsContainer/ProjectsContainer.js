@@ -2,25 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import clsx from 'clsx';
-import { NavBar } from '../NavBar/NavBar';
-import { TopBar } from '../TopBar/TopBar';
+import {NavBar} from '../NavBar/NavBar';
+import {Projects} from '../Projects/Projects';
 
 // import { connect } from 'react-redux';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
-import styles from './MainBar.module.scss';
+import styles from './ProjectsContainer.module.scss';
 
 const Component = ({className}) => (
   <div className={clsx(className, styles.root)}>
     <div className={styles.overlay}>
-      <NavBar/>
-      <TopBar />
+      <NavBar className={styles.background}/>
     </div>
+    <Projects/>
   </div>
 );
 
 Component.propTypes = {
-  children: PropTypes.node,
   className: PropTypes.string,
 };
 
@@ -35,7 +34,7 @@ Component.propTypes = {
 // const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
-  Component as MainBar,
-  // Container as MainBar,
-  Component as MainBarComponent,
+  Component as ProjectsContainer,
+  // Container as ProjectsContainer,
+  Component as ProjectsContainerComponent,
 };

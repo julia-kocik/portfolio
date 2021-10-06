@@ -3,4 +3,9 @@
 .root {
     height: 120vh;
     background: url('https://images.pexels.com/photos/3576112/pexels-photo-3576112.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    .overlay {
+        height: 100%;
+        width: 100%;
+        background: rgba(156, 104, 104, 0.4);
+    }
 }
