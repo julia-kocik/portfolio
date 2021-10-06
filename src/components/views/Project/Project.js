@@ -6,6 +6,7 @@ import clsx from 'clsx';
 import { connect } from 'react-redux';
 import { getProjectDetails } from '../../../redux/actions/projectActions';
 import { Button } from '../../common/Button/Button';
+import { NavBar } from '../../views/NavBar/NavBar';
 
 
 import styles from './Project.module.scss';
@@ -17,17 +18,30 @@ const Component = ({className, getProjects, project, loading, error}) => {
   }, [getProjects]);
   return (
     <div className={clsx(className, styles.root)}>
+      <div className={styles.background}>
+        <NavBar className={styles.overlayOne}/>
+      </div>
       {(loading || loading === undefined) ? (
         <h2>Loading...</h2>
       ) : error ? (
         <h2>{error}</h2>
       ) : (
-        <div className={styles.projects}>
-          <div key={project._id} className={styles.projectBox}>
-            <p className={styles.titleProjects}>{project.title}</p>
-            <p className={styles.descriptionProjects}>Description</p>
-            <p className={styles.stackProjects}>Tech Stack</p>
-            <Button src={project.src} title="View details" className={styles.btnProjects}/>
+        <div className={styles.project}>
+          <div className={styles.overlayTwo}>
+            <div className={styles.projectLeft}>
+              <img src="https://images.pexels.com/photos/462402/pexels-photo-462402.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt={project.title}/>
+            </div>
+            <div className={styles.projectRight}>
+              <div className={styles.content}>
+                <p className={styles.titleProjects}>{project.title}</p>
+                <p className={styles.descriptionProjects}>Description</p>
+                <p className={styles.stackProjects}>Tech Stack</p>
+              </div>
+              <div className={styles.links}>
+                <Button src={project.src} title="Demo" className={styles.btnProjects}/>          
+                <Button src={project.src} title="GitHub" className={styles.btnProjects}/> 
+              </div>         
+            </div>
           </div>
         </div>
       )}
