@@ -8,7 +8,7 @@ import {Projects} from '../Projects/Projects';
 // import { connect } from 'react-redux';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
-import styles from './ProjectsContainer.module.scss';
+import styles from './ProjectsScreen.module.scss';
 
 const Component = ({className}) => (
   <div className={clsx(className, styles.root)}>
@@ -34,7 +34,7 @@ Component.propTypes = {
 // const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
-  Component as ProjectsContainer,
+  Component as ProjectsScreen,
   // Container as ProjectsContainer,
-  Component as ProjectsContainerComponent,
+  Component as ProjectsContainerScreen,
 };
