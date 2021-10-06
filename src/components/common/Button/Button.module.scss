@@ -1,0 +1,30 @@
+@import '../../../styles/settings.scss';
+
+.root {
+    .btn {
+        display: inline-block;
+        min-width: 160px;
+        margin: 24px auto 0 auto;
+        padding: 16px;
+        border-radius: 5px;
+        font-weight: bold;
+        font-family: $font-main;
+        font-size: 18px;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        border-width: 3px;
+        border-style: solid;
+        background-position: 100% 0;
+        background-size: 300%;
+        transition: $transition;
+        border-color: $color-white;
+        color: $color-white;
+        background-image: linear-gradient(90deg, $color-red 50%, transparent 50%);
+        &:hover {
+            background-position: 0 100%;
+            color: $color-white;
+            border-color: $color-red;
+        }
+    }
+}

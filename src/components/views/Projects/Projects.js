@@ -1,11 +1,11 @@
 import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {getProjects} from '../../../redux/actions/projectActions';
-import {Link} from 'react-router-dom';
 
 import clsx from 'clsx';
 
 import { connect } from 'react-redux';
+import { Button } from '../../common/Button/Button';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
 import styles from './Projects.module.scss';
@@ -24,8 +24,11 @@ const Component = ({className, getProjects, projects, loading, error}) => {
       ) : (
         <div className={styles.projects}>
           {projects.map(project => (
-            <div key={project._id}>
-              <a href={project.src}><p>{project.title}</p></a>
+            <div key={project._id} className={styles.projectBox}>
+              <p className={styles.titleProjects}>{project.title}</p>
+              <p className={styles.descriptionProjects}>Description</p>
+              <p className={styles.stackProjects}>Tech Stack</p>
+              <Button src={project.src} title="View details" className={styles.btnProjects}/>
             </div>
           ))}
         </div>

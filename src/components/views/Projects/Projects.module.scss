@@ -1,6 +1,26 @@
 @import '../../../styles/settings.scss';
 
 .root {
-    height: 500px;
     background-color: $color-white;
+    margin: 40px auto;
+    .projects {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .projectBox {
+            width: 80%;
+            border: 3px solid $color-red;
+            border-radius: 10px;
+            padding: 20px 40px;
+            margin: 20px auto;
+            color: $color-white;
+            background-image: url('https://images.pexels.com/photos/844297/pexels-photo-844297.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+            .titleProjects {
+                font-family: $font-main;
+                font-size: 24px;
+                font-weight: bold;
+            }
+        }
+    }
 }
