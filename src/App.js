@@ -12,6 +12,7 @@ import { MainLayout } from './components/layout/MainLayout/MainLayout';
 import { Homepage } from './components/views/Homepage/Homepage';
 import { About } from './components/views/About/About';
 import { ProjectsScreen } from './components/views/ProjectsScreen/ProjectsScreen';
+import { Project } from './components/views/Project/Project';
 import { Contact } from './components/views/Contact/Contact';
 import { NotFound } from './components/views/NotFound/NotFound';
 
@@ -37,6 +38,7 @@ const App = () => (
               <Route exact path='/home' component={Homepage} />
               <Route exact path='/about' component={About} />
               <Route exact path='/projects' component={ProjectsScreen} />
+              <Route exact path='/projects/:id' component={Project} />
               <Route exact path='/contact' component={Contact} />
               <Route path='*' component={NotFound} />
             </AnimatedSwitch>

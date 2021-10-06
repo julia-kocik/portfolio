@@ -28,7 +28,7 @@ const Component = ({className, getProjects, projects, loading, error}) => {
               <p className={styles.titleProjects}>{project.title}</p>
               <p className={styles.descriptionProjects}>Description</p>
               <p className={styles.stackProjects}>Tech Stack</p>
-              <Button src={project.src} title="View details" className={styles.btnProjects}/>
+              <Button src={`/projects/${project._id}`} title="View details" className={styles.btnProjects}/>
             </div>
           ))}
         </div>
