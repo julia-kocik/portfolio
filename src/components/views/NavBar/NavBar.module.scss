@@ -21,6 +21,7 @@
         }
     }
     .rightNav {
+        transform: translateX(+100%);
         flex: 0 0 50%;
         font-family: $font-main;
         font-size: 28px;
@@ -39,5 +40,9 @@
                 }
             }
         }
+    }
+    .show {
+        transform: translateX(0%);
+        transition: $transition;
     }
 }

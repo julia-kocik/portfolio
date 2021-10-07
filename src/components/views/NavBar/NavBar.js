@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 
 import clsx from 'clsx';
@@ -9,30 +9,40 @@ import {NavLink} from 'react-router-dom';
 
 import styles from './NavBar.module.scss';
 
-const Component = ({className}) => (
-  <nav className={clsx(className, styles.root)}>
-    <div className={styles.leftNav}>
-      <h1>Julia Kocik</h1>
-      <h2>Portfolio</h2>
-    </div>
-    <div className={styles.rightNav}>
-      <ul>
-        <li>
-          <NavLink to="/home">Home</NavLink>
-        </li>
-        <li>
-          <NavLink to="/about">About</NavLink>
-        </li>
-        <li>
-          <NavLink to="/projects">Projects</NavLink>
-        </li>
-        <li>
-          <NavLink to="/contact">Contact</NavLink>
-        </li>
-      </ul>
-    </div>
-  </nav>
-);
+const Component = ({className}) => {
+  const [show, setShow] = useState(false);
+  const rightEffects = [styles.rightNav];
+  useEffect(() => {
+    setTimeout(() => setShow(true), 500);
+  }, []);
+  if(show) {
+    rightEffects.push(styles.show);
+  }
+  return (
+    <nav className={clsx(className, styles.root)}>
+      <div className={styles.leftNav}>
+        <h1>Julia Kocik</h1>
+        <h2>Portfolio</h2>
+      </div>
+      <div className={rightEffects.join(' ')}>
+        <ul>
+          <li>
+            <NavLink to="/home">Home</NavLink>
+          </li>
+          <li>
+            <NavLink to="/about">About</NavLink>
+          </li>
+          <li>
+            <NavLink to="/projects">Projects</NavLink>
+          </li>
+          <li>
+            <NavLink to="/contact">Contact</NavLink>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  );
+};
 
 Component.propTypes = {
   children: PropTypes.node,
