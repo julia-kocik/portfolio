@@ -16,6 +16,7 @@ const Component = ({className}) => {
   const [show, setShow] = useState(false);
   const effects = [styles.mainAbout];
   useEffect(() => {
+    window.scrollTo(0,0);
     setShow(true);
   }, [setShow]);
   if(show) {

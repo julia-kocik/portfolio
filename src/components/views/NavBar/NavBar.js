@@ -13,7 +13,7 @@ const Component = ({className}) => {
   const [show, setShow] = useState(false);
   const rightEffects = [styles.rightNav];
   useEffect(() => {
-    setTimeout(() => setShow(true), 500);
+    setTimeout(() => setShow(true), 1000);
   }, []);
   if(show) {
     rightEffects.push(styles.show);

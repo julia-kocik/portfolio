@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 
 import clsx from 'clsx';
@@ -11,11 +11,17 @@ import { NavBar } from '../../views/NavBar/NavBar';
 
 import styles from './Project.module.scss';
 
-const Component = ({className, getProjects, project, loading, error}) => {
+const Component = ({className, getProject, project, loading, error}) => {
+  const [show, setShow] = useState(false);
+  const effects = [styles.project];
   useEffect(() => {
     window.scrollTo(0,0);
-    getProjects();
-  }, [getProjects]);
+    setTimeout(() => setShow(true), 500);
+    getProject();
+  }, [getProject]);
+  if(show) {
+    effects.push(styles.show);
+  }
   return (
     <div className={clsx(className, styles.root)}>
       <div className={styles.background}>
@@ -26,7 +32,7 @@ const Component = ({className, getProjects, project, loading, error}) => {
       ) : error ? (
         <h2>{error}</h2>
       ) : (
-        <div className={styles.project}>
+        <div className={effects.join(' ')}>
           <div className={styles.overlayTwo}>
             <div className={styles.projectLeft}>
               <img src="https://images.pexels.com/photos/462402/pexels-photo-462402.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt={project.title}/>
@@ -51,7 +57,7 @@ const Component = ({className, getProjects, project, loading, error}) => {
 
 Component.propTypes = {
   className: PropTypes.string,
-  getProjects: PropTypes.func, 
+  getProject: PropTypes.func, 
   project: PropTypes.object,
   loading: PropTypes.bool,
   error: PropTypes.object,
@@ -64,7 +70,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = (dispatch, props) => ({
-  getProjects: () => dispatch(getProjectDetails(props.match.params.id)),
+  getProject: () => dispatch(getProjectDetails(props.match.params.id)),
 });
 
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);

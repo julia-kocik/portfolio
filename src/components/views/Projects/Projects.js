@@ -12,14 +12,14 @@ import styles from './Projects.module.scss';
 
 const Component = ({className, getProjects, projects, loading, error}) => {
   const [show, setShow] = useState(false);
-  const sideDrawerClass = [styles.projectBox];
+  const effects = [styles.projectBox];
   useEffect(() => {
     window.scrollTo(0,0);
     getProjects();
     setTimeout(() => setShow(true), 500);
   }, [getProjects, setShow]);
   if(show) {
-    sideDrawerClass.push(styles.show);
+    effects.push(styles.show);
   }
   return (
     <div className={clsx(className, styles.root)}>
@@ -30,7 +30,7 @@ const Component = ({className, getProjects, projects, loading, error}) => {
       ) : (
         <div className={styles.projects}>
           {projects.map(project => (
-            <div key={project._id} className={sideDrawerClass.join(' ')}>
+            <div key={project._id} className={effects.join(' ')}>
               <p className={styles.titleProjects}>{project.title}</p>
               <p className={styles.descriptionProjects}>Description</p>
               <p className={styles.stackProjects}>Tech Stack</p>
