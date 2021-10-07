@@ -3,6 +3,7 @@
 .root {
     background-color: $color-white;
     border: 1px solid transparent;
+    min-height: 766px;
     .projects {
         display: flex;
         flex-direction: column;
